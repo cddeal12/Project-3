@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import MainNav from '../Components/MainNav';
 
-class UserPage extends Component {
+class MeetUps extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -14,8 +14,8 @@ class UserPage extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
-                            <h1>Main User Page</h1>
-                            <h3>Edit Your Name and Your Collection</h3>
+                            <h1>View Meet-Ups by search</h1>
+                            <h3>Or, view all the meetups you're rsvp'd to</h3>
                         </div>
                     </div>
                 </div>
@@ -24,4 +24,4 @@ class UserPage extends Component {
     };
 };
 
-export default UserPage;
+export default MeetUps;
