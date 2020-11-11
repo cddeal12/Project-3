@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../Utils/API";
+// import API from "../Utils/API";
 import GameSearchCard from "./GameSearchCard";
 
 function GameSearchArea(props) {

@@ -45,7 +45,17 @@ class UserPage extends Component {
                             <h1>Main User Page</h1>
                             <h3>Edit Your Name and Your Collection</h3>
                         </div>
-                        <div className="input-group my-3">
+                        <br></br>
+                        <h4 className="text-center">Display Name Change</h4>
+                        <div className="input-group mb-4 text-center">
+                            <input type="text" className="form-control"></input>
+                            <div className="input-group-append">
+                                <button className="btn btn-primary text-white btn-outline-secondary" type="submit">Update</button>
+                            </div>
+                        </div>
+                        <br></br>
+                        <h4 className="mt-5">Search</h4>
+                        <div className="input-group">
                             <input type="text" onChange={this.handleFieldChange} className="form-control"/>
                             <div className="input-group-append">
                                 <button className="btn text-white btn-success btn-outline-secondary" type="submit" onClick={this.handleGameSearch}>Search</button>
