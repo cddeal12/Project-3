@@ -22,9 +22,17 @@ module.exports = function (sequelize, DataTypes) {
       }
     );
   
-    // User.associate = function (models) {
-      
-    // };
+    Meetup.associate = function (models) {
+      Meetup.belongsToMany(models.User, {
+        through: "UserMeetup",
+        foreignKey: "attendee_id",
+      });
+
+      Meetup.belongsTo(models.User, {
+        through: "UserMeetup",
+        foreignKey: "owner_id",
+      });
+    };
   
     return User;
   };

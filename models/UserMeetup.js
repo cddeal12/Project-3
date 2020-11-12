@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
         meetup_id: DataTypes.INTEGER,
         attendee_id: DataTypes.INTEGER,
         owner_id: DataTypes.INTEGER,
-        games_id: DataTypes.INTEGER
+        game_id: DataTypes.INTEGER
       },
       {
         timestamps: false,

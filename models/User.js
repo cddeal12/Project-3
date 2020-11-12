@@ -16,9 +16,22 @@ module.exports = function (sequelize, DataTypes) {
       }
     );
   
-    // User.associate = function (models) {
-      
-    // };
+    User.associate = function (models) {
+        User.belongsToMany(models.Game, {
+          through: "UserGame",
+          foreignKey: "user_id",
+        });
+
+        User.belongsToMany(models.Meetup, {
+            through: "UserMeetup",
+            foreignKey: "attendee_id",
+        });
+
+        User.hasMany(models.Meetup, {
+            through: "UserMeetup",
+            foreignKey: "owner_id",
+        });
+    };
   
     return User;
   };

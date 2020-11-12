@@ -16,9 +16,12 @@ module.exports = function (sequelize, DataTypes) {
       }
     );
   
-    // User.associate = function (models) {
-      
-    // };
+    Game.associate = function (models) {
+        Game.belongsToMany(models.User, {
+          through: "UserGame",
+          foreignKey: "game_id",
+        });
+    };
   
     return User;
   };
