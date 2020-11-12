@@ -2,7 +2,7 @@
     "development": {
       "username": "root",
       "password": "Hardbut99?",
-      "database": "bg-tracker-db",
+      "database": "bg_tracker_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
