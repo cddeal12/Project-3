@@ -1,13 +1,11 @@
 'use strict';
 
-const { file } = require('@babel/types');
-const { seq } = require('async');
 const fs = require('fs');
 const path = require('path');
 const Sequelize =require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + 'config.json');
+const config = require(__dirname + 'config.json')[env];
 const db = {};
 
 let sequelize;
