@@ -6,6 +6,9 @@ module.exports = function (sequelize, DataTypes) {
         user_name: {
           type: DataTypes.STRING,
         },
+        password: {
+            type: DataTypes.STRING,
+        },
         name: {
             type: DataTypes.STRING,
         }
