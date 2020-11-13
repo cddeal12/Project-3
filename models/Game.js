@@ -7,6 +7,9 @@ module.exports = function (sequelize, DataTypes) {
         },
         bgg_id: {
             type: DataTypes.INTEGER,
+        },
+        thumbnail: {
+          type: DataTypes.STRING,
         }
       },
       {
