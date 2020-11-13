@@ -4,14 +4,6 @@ import GameSearchCard from "./GameSearchCard";
 
 function GameSearchArea(props) {
 
-    // let images = [];
-    // for (let i=0; i<props.results.length; i++) {
-    //     API.searchById(props.results[i].id)
-    //     .then((res) => {
-    //         console.log(res);
-    //     });
-    // };
-
     return (
         <div className="list">
             {
@@ -19,7 +11,8 @@ function GameSearchArea(props) {
                     return <GameSearchCard
                         key ={i}
                         title={game.title}
-                        bggid={game.id}
+                        bggId={game.id}
+                        saveGame={props.saveGameBtn}
                     />
                 })
             }

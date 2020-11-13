@@ -69,7 +69,30 @@ const API = {
     // Gets a meetup by ID
     getMeetup: function(id) {
         return axios.get("/api/meetup/" + id);
-    }
+    },
+
+    // UserGame Routes
+    // ------------------------------------------------------
+    // Adds a new user-game association to the usergame table
+    addUserGame: function(newUserGame) {
+        return axios.post("/api/usergame", {
+            userId: newUserGame.userId,
+            gameId: newUserGame.gameId
+        });
+    },
+
+    // Finds associations by the user's ID
+    findUserGameByUser: function(id) {
+        return axios.get("/api/usergame/byUser/" + id);
+    },
+
+    // Finds an association by a userId and a gameId
+    findUserGame: function(query) {
+        return axios.get("/api/usergame", {
+            userId: query.userId,
+            gameId: query.gameId
+        })
+    },
 
 };
 

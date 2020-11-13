@@ -7,8 +7,8 @@ const GameSearchCard = (props) => {
             <img className="p-3" src="https://via.placeholder.com/150" alt={props.title}/>
             <div className="desc p-3">
                 <h2>{props.title}</h2>
-                <h3>{props.id}</h3>
-                <button className="btn btn-primary">Save</button>
+                <h3>{props.bggId}</h3>
+                <button className="btn btn-primary" bggId={props.bggId} onClick={props.saveGame}>Save</button>
             </div>
         </div>
     )

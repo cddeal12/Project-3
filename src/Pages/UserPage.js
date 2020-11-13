@@ -35,6 +35,11 @@ class UserPage extends Component {
         });
     };
 
+    // Saves the game to the database when clicked
+    saveGameBtn = () => {
+        console.log("You clicked a save button.")
+    };
+
     render() {
         return (
             <div>
@@ -61,7 +66,7 @@ class UserPage extends Component {
                                 <button className="btn text-white btn-success btn-outline-secondary" type="submit" onClick={this.handleGameSearch}>Search</button>
                             </div>
                         </div>
-                        <GameSearchArea results={this.state.gamesSearched} />
+                        <GameSearchArea results={this.state.gamesSearched} saveGameBtn={this.saveGameBtn} />
                     </div>
                 </div>
             </div>
