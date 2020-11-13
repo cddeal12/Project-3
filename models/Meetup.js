@@ -29,9 +29,8 @@ module.exports = function (sequelize, DataTypes) {
       });
 
       Meetup.belongsToMany(models.User, {
-        through: "UserMeetup",
-        foreignKey: "attendee_id",
-        unique: false,
+        through: {model: "UserMeetup", unique: false},
+        foreignKey: "meetup_id",
       });
       
     };

@@ -25,9 +25,8 @@ module.exports = function (sequelize, DataTypes) {
         });
 
         User.belongsToMany(models.Meetup, {
-            through: "UserMeetup",
+            through: {model: "UserMeetup", unique: false},
             foreignKey: "attendee_id",
-            unique: false,
         });
 
         User.hasMany(models.Meetup, {
