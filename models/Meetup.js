@@ -23,17 +23,19 @@ module.exports = function (sequelize, DataTypes) {
     );
   
     Meetup.associate = function (models) {
+      Meetup.belongsTo(models.User, {
+        // through: "UserMeetup",
+        foreignKey: "owner_id",
+      });
+
       Meetup.belongsToMany(models.User, {
         through: "UserMeetup",
         foreignKey: "attendee_id",
+        unique: false,
       });
-
-      Meetup.belongsTo(models.User, {
-        through: "UserMeetup",
-        foreignKey: "owner_id",
-      });
+      
     };
   
-    return User;
+    return Meetup;
   };
   

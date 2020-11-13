@@ -1,4 +1,3 @@
-// Require models for linking with other models
 module.exports = function (sequelize, DataTypes) {
     const Game = sequelize.define(
       "Game",
@@ -23,6 +22,6 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
   
-    return User;
+    return Game;
   };
   

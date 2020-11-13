@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require("../models");
 
-//API Routes
+// API Routes
 // ==================================================
 // Adds a new game with a title and bgg_id
 router.post("/api/game", function (req, res) {

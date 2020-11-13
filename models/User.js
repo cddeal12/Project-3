@@ -1,4 +1,3 @@
-// Require models for linking with other models
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define(
       "User",
@@ -28,10 +27,11 @@ module.exports = function (sequelize, DataTypes) {
         User.belongsToMany(models.Meetup, {
             through: "UserMeetup",
             foreignKey: "attendee_id",
+            unique: false,
         });
 
         User.hasMany(models.Meetup, {
-            through: "UserMeetup",
+            // through: "UserMeetup",
             foreignKey: "owner_id",
         });
     };
