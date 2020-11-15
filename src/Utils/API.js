@@ -1,5 +1,4 @@
 import axios from "axios";
-import { response } from "express";
 
 const API = {
 
@@ -35,7 +34,8 @@ const API = {
     //-------------------------------------------------
     // Adds a new game to database, from GameController
     addGame: function(game) {
-        return axios.post("/api/game", {title: game.title, bggId: game.bggId})
+        console.log("Attempting to add game: " + game.title);
+        return axios.post("/api/game", {title: game.title, bggId: game.bggId, imageString: game.imageString})
     },
 
     getGameByBGG: function(bggId) {

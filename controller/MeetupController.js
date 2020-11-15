@@ -44,3 +44,7 @@ router.get("/api/meetup/:id", function (req, res) {
         });
     });
 });
+
+module.exports = {
+    router: router
+  };

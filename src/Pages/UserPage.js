@@ -36,8 +36,17 @@ class UserPage extends Component {
     };
 
     // Saves the game to the database when clicked
-    saveGameBtn = () => {
-        console.log("You clicked a save button.")
+    saveBtnPress = (event) => {
+        let targetBGG = event.target.getAttribute("bggid");
+        let targetTitle = event.target.getAttribute("title");
+        console.log("You clicked a save button with bggId: " + targetBGG);
+
+        API.addGame({
+            title: targetTitle,
+            bggId: targetBGG,
+            imageString:"https://via.placeholder.com/150"
+        });
+
     };
 
     render() {
@@ -66,7 +75,7 @@ class UserPage extends Component {
                                 <button className="btn text-white btn-success btn-outline-secondary" type="submit" onClick={this.handleGameSearch}>Search</button>
                             </div>
                         </div>
-                        <GameSearchArea results={this.state.gamesSearched} saveGameBtn={this.saveGameBtn} />
+                        <GameSearchArea results={this.state.gamesSearched} saveBtnPress= {this.saveBtnPress} />
                     </div>
                 </div>
             </div>

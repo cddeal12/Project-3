@@ -12,7 +12,7 @@ function GameSearchArea(props) {
                         key ={i}
                         title={game.title}
                         bggId={game.id}
-                        saveGame={props.saveGameBtn}
+                        saveBtnPress={props.saveBtnPress}
                     />
                 })
             }

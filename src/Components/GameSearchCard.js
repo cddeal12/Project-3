@@ -8,7 +8,7 @@ const GameSearchCard = (props) => {
             <div className="desc p-3">
                 <h2>{props.title}</h2>
                 <h3>{props.bggId}</h3>
-                <button className="btn btn-primary" bggId={props.bggId} onClick={props.saveGame}>Save</button>
+                <button className="btn btn-primary" bggId={props.bggId} title={props.title} onClick={props.saveBtnPress}>Save</button>
             </div>
         </div>
     )

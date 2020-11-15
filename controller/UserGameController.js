@@ -61,3 +61,7 @@ router.get("/api/usergame", function(req, res) {
         });
     });
 });
+
+module.exports = {
+    router: router
+  };

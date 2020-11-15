@@ -10,6 +10,7 @@ router.post("/api/game", function (req, res) {
     db.Game.create({
         title: req.body.title,
         bgg_id: req.body.bggId,
+        thumbnail: req.body.imageString
     }).then(function (newGame) {
         console.log("Added Game: " + newGame.title)
         res.json(newGame);
@@ -42,3 +43,7 @@ router.get("/api/game/:bggId", function (req, res) {
         });
     });
 });
+
+module.exports = {
+    router: router
+  };
