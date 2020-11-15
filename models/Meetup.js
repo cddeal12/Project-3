@@ -14,7 +14,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         extra_info: {
             type: DataTypes.STRING,
-        }
+        },
+        // owner_id:  {
+        //   type: DataTypes.INTEGER,
+        // }
       },
       {
         timestamps: false,

@@ -2,14 +2,25 @@ import React, {Component} from "react";
 import MainNav from '../Components/MainNav';
 import API from '../Utils/API';
 import GameSearchArea from '../Components/GameSearchArea';
+import YourLibrary from "../Components/YourLibrary";
 
 class UserPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             searchField: "",
-            gamesSearched: []
+            gamesSearched: [],
+            currentUser: 1,
+            library: [{title: "Glooooomb"}, {title: "wahooRat"}]
         };
+    };
+
+    componentDidMount = () => {
+        // API.findUserGameByUser(this.state.currentUser)
+        // .then((res) => {
+        //     console.log(res)
+        // });
+        console.log("COMPONENTDIDMOUNT");
     };
 
     handleFieldChange = (event) => {
@@ -39,14 +50,20 @@ class UserPage extends Component {
     saveBtnPress = (event) => {
         let targetBGG = event.target.getAttribute("bggid");
         let targetTitle = event.target.getAttribute("title");
+        let userAddingGame = this.state.currentUser;
         console.log("You clicked a save button with bggId: " + targetBGG);
 
         API.addGame({
             title: targetTitle,
             bggId: targetBGG,
             imageString:"https://via.placeholder.com/150"
+        })
+        .then(function(res) {
+            API.addUserGame({
+                userId: userAddingGame,
+                gameId: res.data.id
+            })
         });
-
     };
 
     render() {
@@ -56,8 +73,8 @@ class UserPage extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center">
-                            <h1>Main User Page</h1>
-                            <h3>Edit Your Name and Your Collection</h3>
+                        <h1>Welcome to bgg-tracker</h1>
+                        <h3>Edit your Name and Collection here</h3>
                         </div>
                         <br></br>
                         <h4 className="text-center">Display Name Change</h4>
@@ -66,6 +83,11 @@ class UserPage extends Component {
                             <div className="input-group-append">
                                 <button className="btn btn-primary text-white btn-outline-secondary" type="submit">Update</button>
                             </div>
+                        </div>
+                        <br></br>
+                        <div className="col-12">
+                            <h2>Your Current Library</h2>
+                            <YourLibrary library={this.state.library}/>
                         </div>
                         <br></br>
                         <h4 className="mt-5">Search</h4>

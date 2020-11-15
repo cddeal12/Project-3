@@ -8,12 +8,13 @@ const db = require("../models");
 router.post("/api/meetup", function (req, res) {
     console.log("Adding Meetup: " + req.body.name);
     db.Meetup.create({
-        name: req.body.name,
+        meetup_name: req.body.name,
         time_info: req.body.timeInfo,
         location_info: req.body.locationInfo,
         extra_info: req.body.extraInfo,
+        owner_id: req.body.owner_id
     }).then(function (newMeetup) {
-        console.log("Added Meetup: " + newMeetup.name)
+        console.log("Added Meetup: " + newMeetup.meetup_name)
         res.json(newMeetup);
     }).catch((err) => {
         console.log(err);

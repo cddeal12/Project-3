@@ -62,7 +62,8 @@ const API = {
             name: newMeet.name,
             timeInfo: newMeet.timeInfo,
             locationInfo: newMeet.locationInfo,
-            extraInfo: newMeet.extraInfo
+            extraInfo: newMeet.extraInfo,
+            owner_id: newMeet.ownerId
         });
     },
 
