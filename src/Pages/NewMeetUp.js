@@ -5,7 +5,6 @@ import API from "../Utils/API";
 class NewMeetUp extends Component {
     constructor(props) {
         super(props);
-        this.textInput = React.createRef();
         this.state = {
             titleField: "",
             timeField: "",
@@ -82,13 +81,13 @@ class NewMeetUp extends Component {
                     <div className="row justify-content-center">
                         <div className={this.state.greenAlert} role="alert">Added your Meetup Successfully!</div>
                         <h4 className="col-12" >Meetup Title</h4>
-                        <input id="meetup-title" maxLength="255" ref={this.textInput} value={this.state.titleField} onChange={this.handleTitleUpdate} type="text" className="form-control"></input>
+                        <input id="meetup-title" maxLength="255" value={this.state.titleField} onChange={this.handleTitleUpdate} type="text" className="form-control"></input>
                         <h4 className="col-12" >Time Info</h4>
-                        <input id="time-input" maxLength="255" ref={this.textInput} value={this.state.timeField} onChange={this.handleTimeUpdate} type="text" className="form-control"></input>
+                        <input id="time-input" maxLength="255" value={this.state.timeField} onChange={this.handleTimeUpdate} type="text" className="form-control"></input>
                         <h4 className="col-12" >Location Info</h4>
-                        <input id="location-input" maxLength="255" ref={this.textInput} value={this.state.locationField} onChange={this.handleLocationUpdate} type="text" className="form-control"></input>
+                        <input id="location-input" maxLength="255" value={this.state.locationField} onChange={this.handleLocationUpdate} type="text" className="form-control"></input>
                         <h4 className="col-12" >Extra Info</h4>
-                        <input id="extra-input" maxLength="255" ref={this.textInput} value={this.state.extraField} onChange={this.handleExtraUpdate} type="text" className="form-control"></input>
+                        <input id="extra-input" maxLength="255" value={this.state.extraField} onChange={this.handleExtraUpdate} type="text" className="form-control"></input>
                         <div className={this.state.redAlert} role="alert">Make sure you leave no fields empty.</div>                        
                         <div className="input-group-append my-3 align-center">
                             <button className="btn btn-primary text-white btn-outline-secondary" onClick={this.addNewMeetup} type="submit">Add Meetup</button>
