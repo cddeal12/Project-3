@@ -44,6 +44,26 @@ router.get("/api/game/:bggId", function (req, res) {
     });
 });
 
+// Gets a game by its id in the database
+router.get("/api/game/byId/:id", function(req, res) {
+    console.log("Searching for game with id of: " + req.params.id);
+    db.Game.findOne({
+        where: {
+            id: req.params.id
+        },
+    }).then(function(foundGame) {
+        console.log("Found game: " + foundGame.title);
+        res.json(foundGame);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+            error: true,
+            data: null,
+            message: "Unable to find game with that id",
+        });
+    });
+});
+
 module.exports = {
     router: router
   };

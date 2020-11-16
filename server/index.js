@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 // const Sequelize = require('sequelize');
 
 // Controller Routes import
-const { router: userRouter} = require('../controller/UserController');
+const {router: userRouter} = require('../controller/UserController');
 const {router: gameRouter} = require('../controller/GameController');
 const {router: meetupRouter} = require('../controller/MeetupController');
 const {router: userGameRouter} = require('../controller/UserGameController');
@@ -20,17 +20,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(publicPath));
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
-});
-
 // API Routes setup
 app.use(userRouter);
 app.use(gameRouter);
 app.use(meetupRouter);
 app.use(userGameRouter);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 db.sequelize.sync({}).then(function () {
     app.listen(port, () => {

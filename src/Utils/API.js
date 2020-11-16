@@ -42,6 +42,10 @@ const API = {
         return axios.get("/api/game/" + bggId);
     },
 
+    getGameById: function(id) {
+        return axios.get("/api/game/byId/" + id);
+    },
+
     // User Routes
     // ------------------------------------------------
     // Adds a new user to the database, from UserController
@@ -70,6 +74,11 @@ const API = {
     // Gets a meetup by ID
     getMeetup: function(id) {
         return axios.get("/api/meetup/" + id);
+    },
+
+    // Gets all meetups with an owner id
+    getMeetupByOwner: function(id) {
+        return axios.get("/api/meetupByUser/" + id)
     },
 
     // UserGame Routes

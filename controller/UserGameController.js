@@ -29,7 +29,7 @@ router.get("/api/usergame/byUser/:id", function(req, res) {
         where: {
             user_id: req.params.id
         },
-    }).then(function(response) {
+    }).then((response) => {
         console.log("Found associations.");
         res.json(response);
     }).catch((err) => {

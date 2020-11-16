@@ -11,16 +11,29 @@ class UserPage extends Component {
             searchField: "",
             gamesSearched: [],
             currentUser: 1,
-            library: [{title: "Glooooomb"}, {title: "wahooRat"}]
+            library: []
         };
     };
 
     componentDidMount = () => {
-        // API.findUserGameByUser(this.state.currentUser)
-        // .then((res) => {
-        //     console.log(res)
-        // });
         console.log("COMPONENTDIDMOUNT");
+
+        // Gets all the games owned by the current user
+        API.findUserGameByUser(this.state.currentUser)
+        .then((userGames) => {
+            console.log(userGames);
+            let newLib = [];
+            for (let i=0; i<userGames.data.length; i++){
+                API.getGameById(userGames.data[i].game_id)
+                .then((response) => {
+                    newLib.push(response.data.title)
+                    console.log(newLib);
+                    this.setState({library: newLib});
+            });
+        }
+
+
+        });
     };
 
     handleFieldChange = (event) => {
@@ -52,13 +65,16 @@ class UserPage extends Component {
         let targetTitle = event.target.getAttribute("title");
         let userAddingGame = this.state.currentUser;
         console.log("You clicked a save button with bggId: " + targetBGG);
+        let currentLib = this.state.library;
+        currentLib.push(targetTitle);
 
         API.addGame({
             title: targetTitle,
             bggId: targetBGG,
             imageString:"https://via.placeholder.com/150"
         })
-        .then(function(res) {
+        .then((res) => {
+            this.setState({library: currentLib});
             API.addUserGame({
                 userId: userAddingGame,
                 gameId: res.data.id

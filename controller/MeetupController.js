@@ -46,6 +46,28 @@ router.get("/api/meetup/:id", function (req, res) {
     });
 });
 
+// Gets a meetup by its owner id
+router.get("/api/meetupByUser/:id", function (req, res) {
+    console.log("Finding Meetups with owner ID: " + req.params.id);
+    db.Meetup.findAll({
+        where: {
+            owner_id: req.params.id
+        },
+    }).then((foundMeetups) => {
+        console.log("Found Meetups:");
+        console.log(foundMeetups);
+        res.json(foundMeetups);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+            error: true,
+            data: null,
+            message: "Unable to find Meetups"
+        });
+    });
+});
+
+
 module.exports = {
     router: router
   };
