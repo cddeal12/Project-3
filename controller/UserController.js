@@ -46,6 +46,20 @@ router.get("/api/user/:id", function (req, res) {
   });
 });
 
+//Updates a user's name field
+router.put("/api/user/", function(req, res) {
+    db.User.findOne({
+        where: {
+            id: req.body.id
+        },
+    }).then((userToUpdate) => {
+        userToUpdate.name = req.body.name;
+        userToUpdate.save();
+    }).catch((err) => {
+        console.log(err);
+    });
+})
+
 module.exports = {
     router: router,
     currentUser: currentUser,

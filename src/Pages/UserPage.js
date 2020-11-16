@@ -8,10 +8,12 @@ class UserPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            nameField: "",
             searchField: "",
             gamesSearched: [],
             currentUser: 1,
-            library: []
+            library: [],
+            greenAlert: "col-12 alert alert-success invisible"
         };
     };
 
@@ -39,6 +41,17 @@ class UserPage extends Component {
     handleFieldChange = (event) => {
         this.setState({searchField: event.target.value});
     };
+
+    handleNameChange = (event) => {
+        this.setState({nameField: event.target.value});
+    };
+
+    handleNameChangeSubmit = () => {
+        if (this.state.nameField !== ""){
+            API.changeName(this.state.nameField, this.state.currentUser);
+            this.setState({greenAlert: "col-12 alert alert-success visible"});
+        }
+    }
 
     handleGameSearch = () => {
         API.searchGames(this.state.searchField)
@@ -92,12 +105,13 @@ class UserPage extends Component {
                         <h1>Welcome to bgg-tracker</h1>
                         <h3>Edit your Name and Collection here</h3>
                         </div>
+                        <div className={this.state.greenAlert} role="alert">Changed your name successfully!</div>
                         <br></br>
                         <h4 className="text-center">Display Name Change</h4>
                         <div className="input-group mb-4 text-center">
-                            <input type="text" className="form-control"></input>
+                            <input onChange={this.handleNameChange} type="text" className="form-control"></input>
                             <div className="input-group-append">
-                                <button className="btn btn-primary text-white btn-outline-secondary" type="submit">Update</button>
+                                <button onClick={this.handleNameChangeSubmit} className="btn btn-primary text-white btn-outline-secondary" type="submit">Update</button>
                             </div>
                         </div>
                         <br></br>

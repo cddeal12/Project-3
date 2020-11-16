@@ -58,6 +58,10 @@ const API = {
             return axios.get("/api/user/" + id);
         },
 
+        changeName: function(name, id) {
+            return axios.put("/api/user/", {name: name, id: id});
+        },
+
     // Meetup Routes
     // ----------------------------------------------------
         // Adds a new meetup to the database, from MeetupController
