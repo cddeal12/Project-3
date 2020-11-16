@@ -75,6 +75,11 @@ const API = {
             });
         },
 
+        // Gets all meetups
+        getAllMeetups: function() {
+            return axios.get("/api/meetup/all");
+        },
+
         // Gets a meetup by ID
         getMeetup: function(id) {
             return axios.get("/api/meetup/" + id);

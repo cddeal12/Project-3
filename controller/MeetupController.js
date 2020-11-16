@@ -67,6 +67,22 @@ router.get("/api/meetupByUser/:id", function (req, res) {
     });
 });
 
+// Gets all meetups
+router.get("/api/meetup/all", function (req, res) {
+    db.Meetup.findAll()
+    .then((foundMeetups) => {
+        console.log(foundMeetups);
+        res.json(foundMeetups);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({
+            error: true,
+            data: null,
+            message: "Unable to find Meetups"
+        });
+    });
+});
+
 
 module.exports = {
     router: router

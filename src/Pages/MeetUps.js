@@ -8,7 +8,7 @@ class MeetUps extends Component {
         super(props);
         this.state = {
             displayedMeets: [],
-            typeToDisplay: "Your Owned Meets",
+            typeToDisplay: "Meetups",
             currentUser: 1
         };
     };
@@ -32,8 +32,7 @@ class MeetUps extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 text-center mb-5">
-                            <h1>View all of your meetups!</h1>
-                            <h3>Looking for a certain meetup? Try searching!</h3>
+                            <h1>View posted meetups!</h1>
                         </div>
                     </div>
                     <div className="row justify-content-center">
