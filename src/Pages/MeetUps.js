@@ -8,7 +8,7 @@ class MeetUps extends Component {
         super(props);
         this.state = {
             displayedMeets: [],
-            typeToDisplay: "Owned Meets",
+            typeToDisplay: "Your Owned Meets",
             currentUser: 1
         };
     };
@@ -19,9 +19,9 @@ class MeetUps extends Component {
         // Sets the "displayedMeets" key of state to the user's owned meetups by default
         API.getMeetupByOwner(this.state.currentUser)
         .then((results) =>{
-            console.log("didmount results")
+            console.log("Did Mount Results")
             console.log(results);
-            this.setState({displayedMeets: results});
+            this.setState({displayedMeets: results.data});
         });
     };
 
@@ -31,14 +31,14 @@ class MeetUps extends Component {
                 <MainNav />
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 text-center">
+                        <div className="col-12 text-center mb-5">
                             <h1>View all of your meetups!</h1>
                             <h3>Looking for a certain meetup? Try searching!</h3>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <h2>Now displaying: {this.state.typeToDisplay}</h2>
+                    <div className="row justify-content-center">
+                        <div>
+                            <h2>Now showing: {this.state.typeToDisplay}</h2>
                             {
                                 this.state.displayedMeets.map((meet, i) => {
                                     return <MeetupsCard 
@@ -49,6 +49,7 @@ class MeetUps extends Component {
                                         locationInfo={meet.location_info}
                                         extraInfo={meet.extra_info}
                                         currentUser={this.state.currentUser}
+                                        thisMeetId={meet.id}
                                     />
                                 })
                             }

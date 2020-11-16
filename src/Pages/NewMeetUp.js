@@ -37,7 +37,7 @@ class NewMeetUp extends Component {
     // Makes a post call to meetups using the states of the fields, IF none are empty
         // If there are empty fields, then displays an alert for a few seconds
     addNewMeetup = () => {
-        if (this.state.titleField == "" || this.state.timeField == "" || this.state.locationField == "" || this.state.extraField == "") {
+        if (this.state.titleField === "" || this.state.timeField === "" || this.state.locationField === "" || this.state.extraField === "") {
             this.setState({redAlert: "col-12 my-3 alert alert-danger visible"});
         } else {
             let newTitle = this.state.titleField;

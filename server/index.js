@@ -10,6 +10,7 @@ const {router: userRouter} = require('../controller/UserController');
 const {router: gameRouter} = require('../controller/GameController');
 const {router: meetupRouter} = require('../controller/MeetupController');
 const {router: userGameRouter} = require('../controller/UserGameController');
+const {router: userMeetupRouter} = require('../controller/UserMeetupController');
 
 const port = process.env.PORT || 3000;
 const publicPath = path.join(__dirname, '..', 'build');
@@ -25,6 +26,7 @@ app.use(userRouter);
 app.use(gameRouter);
 app.use(meetupRouter);
 app.use(userGameRouter);
+app.use(userMeetupRouter);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(publicPath, 'index.html'));

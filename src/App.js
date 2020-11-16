@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import UserPage from './Pages/UserPage';
 import MeetUps from './Pages/MeetUps';
 import NewMeetUp from './Pages/NewMeetUp';
+import MeetupInfo from './Pages/MeetupInfo';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/new-meet-up">
           <NewMeetUp />
+        </Route>
+        <Route path="/meetup-info">
+          <MeetupInfo />
         </Route>
         <Route path="/">
           <Login />
