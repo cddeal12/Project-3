@@ -24,10 +24,10 @@ router.post("/api/usermeetup", function(req, res) {
 });
 
 // finds a user-game associations using the attendee_id
-router.get("/api/usermeetup/byUser", function(req, res) {
+router.get("/api/usermeetup/byUser/:id", function(req, res) {
     db.UserMeetup.findAll({
         where: {
-            attendee_id: req.body.attendeeId,
+            attendee_id: req.params.id,
         },
     }).then(function(response) {
         console.log("Found associations.");
@@ -43,10 +43,10 @@ router.get("/api/usermeetup/byUser", function(req, res) {
 });
 
 // finds a user-game associations using the meetup
-router.get("/api/usermeetup/byUser", function(req, res) {
+router.get("/api/usermeetup/byMeetup/:id", function(req, res) {
     db.UserMeetup.findAll({
         where: {
-            meetup_id: req.body.meetupId,
+            meetup_id: req.params.id,
         },
     }).then(function(response) {
         console.log("Found associations.");

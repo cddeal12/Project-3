@@ -11,19 +11,6 @@ class YourLibrary extends Component {
         console.log("Library Mounted");
     };
 
-    // componentDidUpdate = () => {
-    //     console.log(this.props);
-    //     let newLib = [];
-    //     for (let i=0; i<this.props.library.length; i++){
-    //         API.getGameById(this.props.library[i].game_id)
-    //         .then((response) => {
-    //             newLib.push(response.data.title)
-    //             console.log(newLib);
-    //             this.setState({library: newLib});
-    //         });
-    //     }
-    // };
-
     render() {
         return (
             <div className="library">
